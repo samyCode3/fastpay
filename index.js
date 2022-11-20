@@ -1,16 +1,23 @@
-const  express = require("express")
-const  ejs =  require("ejs")
-require("./config/config")
+const express = require("express");
+const ejs = require("ejs");
+const db = require("./config/config").MongoURL;
+const mongoose = require("mongoose");
 
+const app = express();
 
-const app = express()
+const PORT = process.env.PORT;
 
-const PORT = process.env.PORT
+app.use(express.json());
 
-app.use(express.json())
+mongoose.Promise = global.Promise;
 
-app.get("/", (req, res) => {
-    res.send("happy coding")
-})
+mongoose
+  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    app.get("/", (req, res) => {
+      res.send("happy coding");
+    });
+  })
+  .catch((err) => console.log(err));
 
-app.listen(PORT, console.log(`app running on port ${PORT}`))
+app.listen(PORT, console.log(`app running on port ${PORT}`));
