@@ -20,6 +20,7 @@
     "mongoose": "^6.7.2",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.20",
+    "passport": "^0.6.0",
     "paystack": "^2.0.1",
     "qrcode": "^1.5.1",
     "stripe": "^11.1.0",
