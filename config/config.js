@@ -1,5 +1,6 @@
 require("dotenv").config()
 module.exports = {
-    MongoURL : process.env.Mongo_Key,
+    MongoURL : process.env.Mongo_Key_Alat,
 }
+
 
