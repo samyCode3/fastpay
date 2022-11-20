@@ -12,10 +12,11 @@ app.use(express.json())
 mongoose.Promise = global.Promise
 
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
-    app.get("/", (req, res) => {
-        res.send("happy coding")
-    })
+  
     console.log("connected to mongo database")
+})
+app.get("/", (req, res) => {
+    res.send("happy coding")
 })
     .catch(err => console.log(err))
    
